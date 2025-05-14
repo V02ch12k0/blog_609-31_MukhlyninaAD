@@ -1,0 +1,50 @@
+{% extends "base_layout.html" %}
+{% block title %}Login{% endblock title %}
+{% block content %}
+    <main>
+        <div class="container">
+            <nav>
+                <ul class="login_btns">
+                    {% if user.is_authenticated %}
+                        <li>
+                            <form class="form" action="/accounts/logout/" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="login_is_auth">
+                                    Logout
+                                    <img src="/static/logout.svg" alt="">
+                                </button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{% url 'login' %}" class="login_none_auth">
+                                Login
+                                <img class="login_img" src="/static/login.svg" alt="">
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            <div class="articles">
+                {% for element in articles %}
+                    <div class="article__item">
+                        <h2>
+                            <a href="{% url 'article_detail' slug=element.slug %}">
+                                {{ element.title }}
+                            </a>
+                        </h2>
+                        <p>
+                            {% comment %} {{ element.body }} {% endcomment %}
+                            {{ element.snippet }}
+                        </p>
+                        <time>
+                            {{ element.date }}
+                        </time>
+                    </div>
+                {% endfor %}
+            </div>
+            <h1>Article List</h1>
+        </div>
+    </main>
+{% endblock content %}
+
