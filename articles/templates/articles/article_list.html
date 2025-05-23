@@ -1,35 +1,22 @@
 {% extends "base_layout.html" %}
-{% block title %}Login{% endblock title %}
+{% block title %}Article List{% endblock title %}
 {% block content %}
     <main>
         <div class="container">
-            <nav>
-                <ul class="login_btns">
-                    {% if user.is_authenticated %}
-                        <li>
-                            <form class="form" action="/accounts/logout/" method="post">
-                                {% csrf_token %}
-                                <button type="submit" class="login_is_auth">
-                                    Logout
-                                    <img src="/static/logout.svg" alt="">
-                                </button>
-                            </form>
-                        </li>
-                    {% else %}
-                        <li>
-                            <a href="{% url 'login' %}" class="login_none_auth">
-                                Login
-                                <img class="login_img" src="/static/login.svg" alt="">
-                            </a>
-                        </li>
-                    {% endif %}
-                </ul>
-            </nav>
+            <h1>Article List</h1>
+            {% if user.is_authenticated %}
+                <li class="article_create_in_list">
+                    <a href="{% url 'articles:create' %}">
+                        Create article
+                        <img src="/static/add.svg" style="width: 30px; height: 30px; margin-bottom: 3px;" alt="">
+                    </a>
+                </li>
+            {% endif %}
             <div class="articles">
                 {% for element in articles %}
                     <div class="article__item">
                         <h2>
-                            <a href="{% url 'article_detail' slug=element.slug %}">
+                            <a href="{% url 'articles:article_detail' slug=element.slug %}">
                                 {{ element.title }}
                             </a>
                         </h2>
@@ -40,10 +27,12 @@
                         <time>
                             {{ element.date }}
                         </time>
+                        <p>
+                            {{ element.author }}
+                        </p>
                     </div>
                 {% endfor %}
             </div>
-            <h1>Article List</h1>
         </div>
     </main>
 {% endblock content %}

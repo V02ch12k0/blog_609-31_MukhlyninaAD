@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.http import HttpResponseRedirect
+# from django.http import HttpResponseRedirect
 
 def signup_view(request):
     if request.method == 'POST':
@@ -9,7 +9,7 @@ def signup_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return HttpResponseRedirect('/articles')
+            return redirect('/articles')
     else:
         form = UserCreationForm()
     return render(request, 'accounts/signup.html', {'form': form})
@@ -20,7 +20,9 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return HttpResponseRedirect('/articles')
+            if 'next' in request.POST:
+                return redirect(request.POST['next'])
+            return redirect('articles:article_list')
     else:
         form = AuthenticationForm()
     return render(request, 'accounts/login.html', {'form': form})
@@ -28,4 +30,4 @@ def login_view(request):
 def logout_view(request):
     if request.method == 'POST':
         logout(request)
-    return HttpResponseRedirect('/articles')
+    return redirect('/articles')

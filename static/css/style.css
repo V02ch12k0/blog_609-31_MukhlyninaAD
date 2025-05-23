@@ -259,3 +259,20 @@ label {
     transition: background-color 0.3s ease;
 }
 
+.article_create_in_list {
+    font-weight: bold;
+    list-style: none;
+    text-align: end;
+    font-size: 24px;
+}
+
+.article_create_in_list a{
+    text-decoration: none;
+    color: rgb(44, 20, 62);
+
+}
+
+.article_create_in_list a:hover {
+    filter: brightness(0) saturate(100%) invert(60%) sepia(96%) saturate(843%) hue-rotate(298deg) brightness(92%) contrast(85%);
+}
+

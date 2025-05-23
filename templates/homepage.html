@@ -2,7 +2,6 @@
 {% block title %}Homepage{% endblock title %}
 {% block content %}
     <img class="background_img" src="/static/background.jpg" alt="">
-
     <div class="container">
         <h1>{{ header }}</h1>
         <h2>{{ message }}</h2>
@@ -26,11 +25,11 @@
 
         <h2>Latest Articles</h2>
         <div class="articles-list">
-            {% for article in articlesList %}
+            {% for article in article_list %}
                 <div class="article-card">
                     <h3><a>{{ article.title }}</a></h3>
                     <p class="article_body">{{ article.snippet }}
-                    <a href="{% url 'article_detail'  article.slug %}" class="read-more">Read More</a>
+                    <a href="{% url 'articles:article_detail'  article.slug %}" class="read-more">Read More</a>
                     </p>
                 </div>
             {% endfor %}

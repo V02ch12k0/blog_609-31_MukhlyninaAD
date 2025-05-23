@@ -15,16 +15,36 @@
             <ul class="nav">
                 <img class="logo" src="/static/logo.jpg"/>
                 <li><a href="{% url 'homepage' %}">Homepage</a></li>
-                <li><a href="{% url 'article_list' %}">Articles</a></li>
+                <li><a href="{% url 'articles:article_list' %}">Articles</a></li>
                 <li><a href="#">Contact us</a></li>
                 <li><a href="{% url 'about' %}">About us</a></li>
-                <li><a href="{% url 'signup' %}"><img class="account_icon" src="/static/account.svg"></a></li>
+{#                <li><a href="{% url 'signup' %}"><img class="account_icon" src="/static/account.svg"></a></li>#}
+                <li><a href="{% url 'articles:create' %}">Create article</a></li>
+                {% if user.is_authenticated %}
+                    <li>
+                        <form class="form" action="{% url 'accounts:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="login_is_auth">
+                                Logout
+                                <img src="/static/logout.svg" alt="">
+                            </button>
+                        </form>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{% url 'accounts:login' %}" class="login_none_auth">
+                            Login
+                            <img class="login_img" src="/static/login.svg" alt="">
+                        </a>
+                    </li>
+                {% endif %}
             </ul>
         </nav>
     </div>
 </header>
+
 {#<div class="container">#}
-    {% block content %}{% endblock content %}
+{% block content %}{% endblock content %}
 </div>
 <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
