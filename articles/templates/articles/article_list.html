@@ -16,7 +16,7 @@
                 {% for element in articles %}
                     <div class="article__item">
                         <h2>
-                            <a href="{% url 'articles:article_detail' slug=element.slug %}">
+                            <a href="{% comment %}{% url 'articles:article_detail' slug=element.slug %}{% endcomment %}">
                                 {{ element.title }}
                             </a>
                         </h2>

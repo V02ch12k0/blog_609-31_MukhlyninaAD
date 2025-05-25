@@ -25,11 +25,11 @@
 
         <h2>Latest Articles</h2>
         <div class="articles-list">
-            {% for article in article_list %}
+            {% for article in articlesList %}
                 <div class="article-card">
-                    <h3><a>{{ article.title }}</a></h3>
+                    <h3><a style="color: rgb(60, 26, 85); font-weight: ">{{ article.title }}</a></h3>
                     <p class="article_body">{{ article.snippet }}
-                    <a href="{% url 'articles:article_detail'  article.slug %}" class="read-more">Read More</a>
+                    <a href="{% url 'articles:article_detail' article.slug %}" class="read-more">Read More</a>
                     </p>
                 </div>
             {% endfor %}

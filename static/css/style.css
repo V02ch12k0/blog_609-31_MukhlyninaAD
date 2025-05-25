@@ -56,7 +56,7 @@ h1 {
 h2 {
     margin-top: 55px;
     margin-bottom: 25px;
-    font-weight: normal;
+    font-weight: bolder;
     color: rgb(60, 26, 85);
 
 }
@@ -152,8 +152,7 @@ li a:hover {
 
 
 .login_none_auth {
-    margin-top: 10px;
-    font-size: 24px;
+   /* margin-top: 10px;*/
     color: rgb(44, 20, 62);
     text-decoration: none;
     font-weight: bold;
@@ -174,20 +173,24 @@ li a:hover {
 }
 
 .login_is_auth {
-    padding: 10px 60px;
+    /*padding: 10px 60px;*/
     color: rgb(44, 20, 62);
     background-color: #F5D7D9;
     border: none;
     font-size: medium;
-    border-radius: 10px;
-    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    /*border-radius: 10px;*/
+    /*box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);*/
     cursor: pointer;
-    transition: transform 0.3s ease;
+    /*transition: transform 0.3s ease;*/
     font-weight: bold;
 }
 
 .login_is_auth:hover {
-    transform: scale(0.95);
+    color: palevioletred;
+}
+
+.logout_img:hover {
+    filter: brightness(0) saturate(100%) invert(60%) sepia(96%) saturate(843%) hue-rotate(298deg) brightness(92%) contrast(85%);
 }
 
 .login_form {
@@ -274,5 +277,21 @@ label {
 
 .article_create_in_list a:hover {
     filter: brightness(0) saturate(100%) invert(60%) sepia(96%) saturate(843%) hue-rotate(298deg) brightness(92%) contrast(85%);
+}
+
+.btn_create {
+    font-weight: bolder;
+    color: rgb(44, 20, 62);
+    padding: 10px 35px;
+    background-color: #F5D7D9;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    transition: ease 0.2s;
+}
+
+.btn_create:hover {
+    background-color: #df94ac;
+    transform: scale(0.9);
 }
 
