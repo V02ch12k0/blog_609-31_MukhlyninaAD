@@ -1,0 +1,34 @@
+.login_form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #F5D7D9;
+  border-radius: 15px;
+  width: 70%;
+  height: 30%;
+  margin: 50px auto 10px auto;
+  align-items: center;
+  padding-top: 20px;
+  box-shadow: 3px -3px 16px 0px rgba(34, 60, 80, 0.2);
+
+  .login_submit_btn {
+    border: none;
+    height: 50px;
+    width: 100%;
+    background-color: #F5D7D9;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    color: rgb(44, 20, 62);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    &:hover {
+      background-color: #edbacb;
+    }
+  }
+}
+
+
+
+
+
+

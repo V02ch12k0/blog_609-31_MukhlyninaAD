@@ -5,7 +5,7 @@ from articles.models import Article
 
 def homepage(request):
     articlesList = Article.objects.all()[:5]
-    data = {"header": "From Beauty to Bravery – Stories That Define Us", "message": "Discover Stories That Resonate",
+    data = {"message": "Discover Stories That Resonate",
             "articlesList": articlesList}
     return render(request, 'homepage.html', context=data)
 

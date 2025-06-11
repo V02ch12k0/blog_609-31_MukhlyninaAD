@@ -3,7 +3,7 @@
 {% block content %}
     <img class="background_img" src="/static/background.jpg" alt="">
     <div class="container">
-        <h1>{{ header }}</h1>
+        <h1>From Beauty to Bravery – Stories <br class="xl lg-0">That Define Us</br></h1>
         <h2>{{ message }}</h2>
         <p> Dive into a world of empowering articles, practical advice, and heartfelt
             stories crafted for modern women. Whether you’re seeking career inspiration,
@@ -26,12 +26,21 @@
         <h2>Latest Articles</h2>
         <div class="articles-list">
             {% for article in articlesList %}
-                <div class="article-card">
-                    <h3><a style="color: rgb(60, 26, 85); font-weight: ">{{ article.title }}</a></h3>
-                    <p class="article_body">{{ article.snippet }}
-                    <a href="{% url 'articles:article_detail' article.slug %}" class="read-more">Read More</a>
-                    </p>
-                </div>
+                {% if article.slug != '' %}
+                    <div class="article-card">
+                        <div class="article_descr">
+                            <h3><a style="color: rgb(60, 26, 85); font-weight: bolder">{{ article.title }}</a></h3>
+                            <p class="article_body">
+                                {{ article.snippet }}
+                                <a href="{% url 'articles:article_detail'  slug=article.slug %}" class="read-more">Read
+                                    More</a>
+                            </p>
+                        </div>
+                        {% if article.thumbnail.url != null %}
+                            <img class="article_img_homepage" src="{{ article.thumbnail.url }}" alt="">
+                        {% endif %}
+                    </div>
+                {% endif %}
             {% endfor %}
         </div>
 

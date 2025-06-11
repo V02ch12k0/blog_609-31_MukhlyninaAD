@@ -1,0 +1,13 @@
+.article-detail {
+  min-width: 100%;
+}
+
+.images {
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+/*# sourceMappingURL=articleItem.css.map */

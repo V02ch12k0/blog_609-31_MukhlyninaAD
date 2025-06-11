@@ -1,0 +1,32 @@
+
+.article_create_in_list {
+  font-weight: bold;
+  list-style: none;
+  text-align: end;
+  font-size: 24px;
+
+  a {
+    text-decoration: none;
+    color: rgb(44, 20, 62);
+
+    &:hover {
+      filter: brightness(0) saturate(100%) invert(60%) sepia(96%) saturate(843%) hue-rotate(298deg) brightness(92%) contrast(85%);
+    }
+  }
+}
+
+.btn_create {
+  font-weight: bolder;
+  color: rgb(44, 20, 62);
+  padding: 10px 35px;
+  background-color: #F5D7D9;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  transition: ease 0.2s;
+
+  &:hover {
+    background-color: #df94ac;
+    transform: scale(0.9);
+  }
+}

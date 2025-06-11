@@ -1,0 +1,28 @@
+.signup_form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  margin-top: 50px;
+
+  .helptext {
+    color: rgb(44, 20, 62);
+    list-style: none;
+  }
+
+  .signup_submit_btn {
+    background-color: #F5D7D9;
+    border: none;
+    font-weight: bolder;
+    color: rgb(44, 20, 62);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    height: 45px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: palevioletred;
+    }
+  }
+}
+
+

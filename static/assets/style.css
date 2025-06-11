@@ -1,0 +1,198 @@
+@import "sass/base.css";
+@import "sass/navigation.css";
+.articles-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.articles-list .article-card {
+  height: 215px;
+  padding-left: 65px;
+  width: 80%;
+  border: solid 1px #d1d1d1;
+  margin-bottom: 15px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+.articles-list .article-card .article_img_homepage {
+  width: 210px;
+  height: 100%;
+  object-fit: cover;
+  border-bottom-right-radius: 25px;
+  border-top-right-radius: 25px;
+}
+.articles-list .article-card .article_descr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 40px;
+}
+.articles-list .article-card .article_descr .article_body {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+.articles-list .article-card .article_descr .article_body .read-more {
+  text-decoration: none;
+  color: #8e2e4c;
+  font-weight: bold;
+}
+.articles-list .article-card .article_descr .article_body .read-more:hover {
+  color: palevioletred;
+}
+
+.background_img {
+  width: 100%;
+  height: 310px;
+}
+
+.article__item {
+  font-size: medium;
+  /* color: palevioletred; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.article__item p {
+  color: rgb(79, 79, 79);
+}
+.article__item time {
+  margin-bottom: 40px;
+  color: rgb(79, 79, 79);
+}
+
+.article-detail {
+  min-width: 100%;
+}
+.article-detail .images {
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.article-detail .btns__update_delete {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 50px;
+}
+.article-detail .btns__update_delete .btn-warning {
+  background-color: #F5D7D9;
+  color: rgb(44, 20, 62);
+  border: none;
+  font-weight: bolder;
+  width: 100px;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+.article-detail .btns__update_delete .btn-warning:hover {
+  background-color: palevioletred;
+  color: #fbebec;
+}
+.article-detail .btns__update_delete .btn-warning:focus:active {
+  background-color: palevioletred;
+  color: #fbebec;
+}
+.article-detail .btns__update_delete .btn-danger {
+  background-color: rgb(44, 20, 62);
+  width: 100px;
+  color: #fbebec;
+  border: none;
+  font-weight: bold;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.article-detail .btns__update_delete .btn-danger:hover {
+  background-color: palevioletred;
+}
+.article-detail .btns__update_delete .btn-danger:focus:active {
+  background-color: palevioletred;
+}
+
+.btns_confirm_delete {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #F5D7D9;
+  border-radius: 15px;
+  width: 70%;
+  height: 30%;
+  margin: 50px auto 10px auto;
+  align-items: center;
+  padding-top: 20px;
+  box-shadow: 3px -3px 16px 0px rgba(34, 60, 80, 0.2);
+}
+.login_form .login_submit_btn {
+  border: none;
+  height: 50px;
+  width: 100%;
+  background-color: #F5D7D9;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  color: rgb(44, 20, 62);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.login_form .login_submit_btn:hover {
+  background-color: #edbacb;
+}
+
+.signup_form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+.signup_form .helptext {
+  color: rgb(44, 20, 62);
+  list-style: none;
+}
+.signup_form .signup_submit_btn {
+  background-color: #F5D7D9;
+  border: none;
+  font-weight: bolder;
+  color: rgb(44, 20, 62);
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  height: 45px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+.signup_form .signup_submit_btn:hover {
+  background-color: palevioletred;
+}
+
+.article_create_in_list {
+  font-weight: bold;
+  list-style: none;
+  text-align: end;
+  font-size: 24px;
+}
+.article_create_in_list a {
+  text-decoration: none;
+  color: rgb(44, 20, 62);
+}
+.article_create_in_list a:hover {
+  filter: brightness(0) saturate(100%) invert(60%) sepia(96%) saturate(843%) hue-rotate(298deg) brightness(92%) contrast(85%);
+}
+
+.btn_create {
+  font-weight: bolder;
+  color: rgb(44, 20, 62);
+  padding: 10px 35px;
+  background-color: #F5D7D9;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  transition: ease 0.2s;
+}
+.btn_create:hover {
+  background-color: #df94ac;
+  transform: scale(0.9);
+}
+
+/*# sourceMappingURL=style.css.map */
