@@ -6,7 +6,7 @@
             <h1>Article List</h1>
             {% if user.is_authenticated %}
                 <li class="article_create_in_list">
-                    <a href="{% url 'articles:create' %}">
+                    <a class="create_article-btn" href="{% url 'articles:create' %}">
                         Create article
                         <img src="/static/add.svg" style="width: 30px; height: 30px; margin-bottom: 3px;" alt="">
                     </a>
@@ -15,21 +15,26 @@
             <div class="articles">
                 {% for element in articles %}
                     <div class="article__item">
-                        <h2>
-                            <a href="{% url 'articles:article_detail' slug=element.slug %}">
-                                {{ element.title }}
-                            </a>
-                        </h2>
-                        <p>
-                            {% comment %} {{ element.body }} {% endcomment %}
-                            {{ element.snippet }}
-                        </p>
-                        <time>
-                            {{ element.date }}
-                        </time>
-                        <p>
-                            {{ element.author }}
-                        </p>
+                        <div class="article_description">
+                            <h2>
+                                <a href="{% url 'articles:article_detail' slug=element.slug %}">
+                                    {{ element.title }}
+                                </a>
+                            </h2>
+                            <p>
+                                {% comment %} {{ element.body }} {% endcomment %}
+                                {{ element.snippet }}
+                            </p>
+                            <time>
+                                {{ element.date }}
+                            </time>
+                            <p>
+                                {{ element.author }}
+                            </p>
+                        </div>
+                        {% if element.thumbnail.url != null %}
+                            <img class="article__item-img" src="{{ element.thumbnail.url }}" alt="">
+                        {% endif %}
                     </div>
                 {% endfor %}
             </div>

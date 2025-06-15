@@ -3,7 +3,7 @@
 {% block title %}Create article{% endblock title %}
 {% block content %}
     <div class="container">
-        <h1>Create or update article</h1>
+        <h1 style="margin-bottom: 15px;">Create or update article</h1>
         <form style="margin-bottom: 50px;" class="form" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form }}

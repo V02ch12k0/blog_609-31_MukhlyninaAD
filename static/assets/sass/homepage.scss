@@ -16,12 +16,34 @@
     justify-content: space-between;
     //overflow: hidden;
 
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+      height: 430px;
+      padding-left: 0;
+    }
+    
+    @media screen and (max-width: 425px) {
+      height: auto;
+    }
+
     .article_img_homepage {
       width: 210px;
       height: 100%;
       object-fit: cover;
       border-bottom-right-radius: 25px;
       border-top-right-radius: 25px;
+
+      @media screen and (max-width: 800px) {
+        width: 100%;
+        overflow: hidden;
+        border-bottom-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border-top-right-radius: 0;
+      }
+
+      @media screen and (max-width: 425px) {
+        display: none;
+      }
     }
 
     .article_descr {
@@ -29,6 +51,12 @@
       flex-direction: column;
       justify-content: center;
       padding-right: 40px;
+
+      @media screen and (max-width: 800px) {
+        text-align: center;
+        padding-right: 20px;
+        padding-left: 20px;
+      }
 
       .article_body {
         margin-top: 15px;

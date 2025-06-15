@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Default title{% endblock title %}</title>
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'assets/style.css' %}">
@@ -11,37 +12,49 @@
 <body>
 <header>
     <div class="container">
-        <nav>
-            <ul class="nav">
-                <img style="width: 65px; height: 65px;" class="logo" src="/static/logo.jpg"/>
-                <li class="nav-item"><a class="nav-link" href="{% url 'homepage' %}">Homepage</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'articles:article_list' %}">Articles</a></li>
-{#                <li class="nav-item"><a class="nav-link" href="#">Contact us</a></li>#}
-                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About us</a></li>
-{#                <li><a href="{% url 'signup' %}"><img class="account_icon" src="/static/account.svg"></a></li>#}
-                <li class="nav-item"><a class="nav-link" href="{% url 'articles:create' %}">Create article</a></li>
-                {% if user.is_authenticated %}
-                    <li class="nav-item ms-0 ms-md-auto">
-                        <form class="form" action="{% url 'accounts:logout' %}" method="post">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-outline-primary">
-                                Logout
-{#                                <img class="logout_img" src="/static/logout.svg" alt="">#}
-                            </button>
-                        </form>
-                    </li>
-                {% else %}
-                    <li class="nav-item ">
-                        <a href="{% url 'accounts:login' %}" class="btn btn-outline-primary ms-0 ms-md-auto">
-                            Login
-{#                            <img class="login_img" src="/static/login.svg" alt="">#}
-                        </a>
-                    </li>
-                    <li class="nav-item ms-0 ms-md-3">
-                        <a class="btn btn-primary" href="{% url 'accounts:signup' %}">Sign Up</a>
-                    </li>
-                {% endif %}
-            </ul>
+        <nav class="navbar navbar-expand-md">
+            <img style="width: 65px; height: 65px;" class="logo" src="/static/logo.jpg"/>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav">
+                    <div class="nav__menu">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'homepage' %}">Homepage</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'articles:article_list' %}">Articles</a>
+                        </li>
+                        {#                <li class="nav-item"><a class="nav-link" href="#">Contact us</a></li>#}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About us</a></li>
+                        {#                <li><a href="{% url 'signup' %}"><img class="account_icon" src="/static/account.svg"></a></li>#}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'articles:create' %}">Create article</a>
+                        </li>
+                    </div>
+                    <div class="nav__auth">
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <form class="form" action="{% url 'accounts:logout' %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-outline-primary">
+                                        Logout
+                                        {#                                <img class="logout_img" src="/static/logout.svg" alt="">#}
+                                    </button>
+                                </form>
+                            </li>
+                        {% else %}
+                            <li class="nav-item ">
+                                <a href="{% url 'accounts:login' %}" class="btn btn-outline-primary ms-0 ms-md-auto">
+                                    Login
+                                    {#                            <img class="login_img" src="/static/login.svg" alt="">#}
+                                </a>
+                            </li>
+                            <li class="nav-item ms-0 ms-md-3">
+                                <a class="btn btn-primary" href="{% url 'accounts:signup' %}">Sign Up</a>
+                            </li>
+                        {% endif %}
+                    </div>
+                </ul>
+            </div>
         </nav>
     </div>
 </header>
@@ -49,6 +62,10 @@
 {#<div class="container">#}
 {% block content %}{% endblock content %}
 </div>
-<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}">
+    document.getElementById('burgerBtn').addEventListener('click', function () {
+        document.querySelector('.nav').classList.toggle('nav--open');
+    });
+</script>
 </body>
 </html>

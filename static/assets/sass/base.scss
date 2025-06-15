@@ -23,7 +23,7 @@ ul {
 
 h1 {
   margin-top: 70px !important;
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
   text-align: center;
   color: rgb(60, 26, 85);
 }
@@ -44,6 +44,10 @@ h3 {
 p {
   color: rgb(79, 79, 79);
   /*margin-top: 50px;*/
+}
+
+.about_p {
+  margin-top: 30px;
 }
 
 h3 a {
@@ -76,6 +80,11 @@ input {
   margin-bottom: 10px;
   margin-top: 10px;
   border: 1px solid palevioletred;
+
+  @media screen and (max-width: 550px) {
+    width: auto;
+    height: auto;
+  }
 }
 
 label {
@@ -110,6 +119,18 @@ label {
 
   &:hover {
     background-color: palevioletred;
+  }
+}
+
+.btn-danger {
+  width: 100px;
+  font-weight: bolder;
+  height: 36px;
+  border: none;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+
+  &:hover {
+    background-color: #f15e5e;
   }
 }
 

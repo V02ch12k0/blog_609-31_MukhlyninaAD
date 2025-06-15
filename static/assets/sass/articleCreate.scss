@@ -1,9 +1,14 @@
 
 .article_create_in_list {
+  margin-top: 25px;
   font-weight: bold;
   list-style: none;
   text-align: end;
   font-size: 24px;
+  @media screen and (max-width: 425px) {
+    font-size: 20px;
+  }
+
 
   a {
     text-decoration: none;
